@@ -1,15 +1,7 @@
-module top_module(
-    input a,
-    input b,
-    input c,
-    input d,
-    output out,
-    output out_n   ); 
-    wire w1,w2 ;
-    and g1(w1 , a , b );
-    and g2(w2 , c , d);
-    or g3(out , w1 , w2);
-    not g4(out_n , out);
-    
+module top_module ( input clk, input d, output q );
+    wire w1,w2;
+    my_dff dut1(clk , d , w1);
+    my_dff dut2(clk , w1,w2);
+    my_dff dut3(clk , w2 , q);
 
 endmodule
