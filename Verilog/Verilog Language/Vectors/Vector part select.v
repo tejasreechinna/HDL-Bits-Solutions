@@ -1,15 +1,10 @@
-module top_module(
-    input a,
-    input b,
-    input c,
-    input d,
-    output out,
-    output out_n   ); 
-    wire w1,w2 ;
-    and g1(w1 , a , b );
-    and g2(w2 , c , d);
-    or g3(out , w1 , w2);
-    not g4(out_n , out);
-    
+module top_module( 
+    input [31:0] in,
+    output [31:0] out );//
+
+    assign out[31:24] =in[7:0];
+    assign out[23:16] =in[15:8];
+    assign out[15:8] =in[23:16];
+    assign out[7:0] =in[31:24];
 
 endmodule
