@@ -1,18 +1,10 @@
 module top_module( 
-    input [2:0] a,
-    input [2:0] b,
-    output [2:0] out_or_bitwise,
-    output out_or_logical,
-    output [5:0] out_not
+    input [3:0] in,
+    output out_and,
+    output out_or,
+    output out_xor
 );
-    
-    assign out_or_bitwise = a | b;
-
-   
-     assign   out_or_logical = a||b;
-  
-    assign out_not[2:0]=~a;
-    assign out_not[5:3]=~b;
-endmodulemodule top_module( input in, output out );
-assign out=~in;
+    assign out_and=in[0]&in[1]&in[2]&in[3];
+    assign out_or=in[0]||in[1]||in[2]||in[3];
+    assign out_xor=in[0]^in[1]^in[2]^in[3];
 endmodule
