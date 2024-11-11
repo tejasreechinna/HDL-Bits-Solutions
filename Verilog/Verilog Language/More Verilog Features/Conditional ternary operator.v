@@ -1,18 +1,11 @@
-module top_module( 
-    input [2:0] a,
-    input [2:0] b,
-    output [2:0] out_or_bitwise,
-    output out_or_logical,
-    output [5:0] out_not
-);
+module top_module (
+    input [7:0] a, b, c, d,
+    output [7:0] min);//
+    reg [7:0] x , y ;
+ 
+    assign x=(a<b)?a:b;
+    assign y=(c<d)?c:d;
+    assign min=(x<y)?x:y;
     
-    assign out_or_bitwise = a | b;
-
-   
-     assign   out_or_logical = a||b;
-  
-    assign out_not[2:0]=~a;
-    assign out_not[5:3]=~b;
-endmodulemodule top_module( input in, output out );
-assign out=~in;
+ 
 endmodule
