@@ -1,8 +1,10 @@
-module top_module( 
-    input [7:0] in,
-    output [7:0] out
+module top_module ( 
+    input a, 
+    input b, 
+    input c,
+    input d,
+    output out1,
+    output out2
 );
-    assign out={in[0],in[1],in[2],in[3],in[4],in[5],in[6],in[7]};
-  
-    
+    mod_a dut(.out1(out1) , .out2(out2) , .in1(a) , .in2(b) ,.in3(c) , .in4(d) );
 endmodule
