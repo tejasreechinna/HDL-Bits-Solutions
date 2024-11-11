@@ -1,18 +1,16 @@
-module top_module( 
-    input [2:0] a,
-    input [2:0] b,
-    output [2:0] out_or_bitwise,
-    output out_or_logical,
-    output [5:0] out_not
-);
-    
-    assign out_or_bitwise = a | b;
+module top_module(
+    input a,
+    input b,
+    input sel_b1,
+    input sel_b2,
+    output wire out_assign,
+    output reg out_always   );
+    assign out_assign = (sel_b1&&sel_b2==1)? b: a;
+    always @(*) begin 
+        if (sel_b1&&sel_b2==1)
+           out_always=b;
+        else 
+            out_always=a;
+    end 
 
-   
-     assign   out_or_logical = a||b;
-  
-    assign out_not[2:0]=~a;
-    assign out_not[5:3]=~b;
-endmodulemodule top_module( input in, output out );
-assign out=~in;
 endmodule
