@@ -1,15 +1,18 @@
-module top_module(
-    input [31:0] a,
-    input [31:0] b,
-    input sub,
-    output [31:0] sum
-);
- wire w1,w2;
-    reg [31:0] b_in;
-    assign b_in={32{sub}}^b;
-    //wire [15:0] sum1;
-    add16 g1(a[15:0] ,b_in[15:0],sub ,sum[15:0] , w1);
-    add16 g2(a[31:16], b_in[31:16] , w1 , sum[31:16] , w2);
-                                //assign sum[31:16]=sum[15:0];
-                                
+module top_module ( output reg A, output reg B );//
+
+    // generate input patterns here
+    initial begin
+        A=0; B=0;
+        #5;
+        A=0;B=0;
+        #5;
+        A=1;B=0;
+        #5;
+        A=1;B=1;
+        #5;
+        A=0;B=1;
+        #20;
+        A=0;B=0;
+    end
+
 endmodule
