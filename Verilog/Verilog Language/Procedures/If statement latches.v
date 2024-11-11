@@ -1,6 +1,22 @@
 module top_module (
-    input a, b, c, d, e,
-    output [24:0] out );
-    assign out = ~{{{5{a}},{5{b}},{5{c}},{5{d}},{5{e}}} ^ {5{a,b,c,d,e}}};
+    input      cpu_overheated,
+    output reg shut_off_computer,
+    input      arrived,
+    input      gas_tank_empty,
+    output reg keep_driving  ); //
+
+    always @(*) begin
+        if (cpu_overheated)
+           shut_off_computer = 1;
+        else 
+            shut_off_computer=0;
+    end
+
+    always @(*) begin
+        if (~arrived)
+           keep_driving = ~gas_tank_empty;
+        else 
+            keep_driving=0;
+    end
 
 endmodule
